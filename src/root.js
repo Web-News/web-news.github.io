@@ -33,15 +33,6 @@
     document.head.append(element);
   }
   
-  if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker
-      .register("https://raw.githubusercontent.com/Web-News/web-news.github.io/main/src/app.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
-}
-  
   const key = "4645bcf241c542279d15316495dd6566"
   const lang = "us"
   const postviewer = "100"
