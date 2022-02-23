@@ -4,8 +4,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web News</title>
-    <link rel="stylesheet" href="src/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit';
+}
+
+@media only screen and (min-width: 800px) {
+  body {
+  background-color: #171717;
+  color: #fff;
+  text-align: center;
+  align-content: center;
+  }
+} 
+
+ .olydesktok {
+   position: fixed;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #171717;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+ }
+
+.onlymobil {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+  background-color: #ededed;
+  }
+  
+ .olydesktok {
+   display: none;
+ }
+ 
+ .onlymobil {
+   display: block;
+ }
+  .header {
+  width: 100%;
+  background-color: #b33f40;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  position: fixed;
+}
+
+.header svg {
+  padding: 15px;
+}
+
+.header svg:nth-child(1) {
+  padding-right: 6px;
+  margin-top: 2px;
+}
+
+.circleMenu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin-top: 93%;
+  margin-left: 85%;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 100%;
+  background-color: #ebebeb;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+  margin-top: 5px;
+  transition: 500ms ease;
+}
+
+#mainCircle {
+  background-color: #b33f40;
+}
+
+.crc {
+  display: none;
+}
+
+#mainCircle:hover {
+  transform: rotate(180deg);
+}
+
+#title {
+  color: #fff;
+  margin-top: 17px;
+  margin-left: 1px;
+  font-size: 16px;
+}
+
+.content {
+  padding:10px;
+  background-color: #ededed;
+  padding-top: 70px;
+}
+
+.feed {
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.btnCircle {
+  width: 50px;
+  height: 50px;
+  background-color: #b33f40;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-top: -5px;
+  margin-right: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 250ms ease;
+}
+
+.btnCircle:hover {
+  transform: rotate(360deg);
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.text {
+  margin-top: 5px;
+  padding: 0 15px 0 15px;
+  line-height: 24px;
+  color: #323232;
+}
+
+.div-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.button {
+  /*width: 70px;*/
+  padding: 10px;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 2px;
+  color: #4e4e4e;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ddecf9;
+  color: #20598c;
+}
+
+#btnReset {
+  padding: 20px;
+  width: 200px;
+  margin: auto;
+  display: none;
+  background-color: #b33f40;
+  border-radius: 2px;
+  color: #fff;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+  transition: 300ms ease;
+}
+
+#btnReset:hover {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+#del1:hover, #del2:hover, #del3:hover {
+  background-color: rgba(221, 67, 67, 0.2);
+}
+
+.action {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  height: 20;
+  width: 20;
+  margin-right: 20px;
+}
+
+.actionMenu {
+  
+  min-width: 177px;
+  margin-left: -122px;
+  margin-top: -44px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 5px;
+  display: none;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.actionMenu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.actionMenu ul li {
+  color: #1e1e1e;
+  padding: 12px;
+  list-style: none;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.actionMenu ul li a {
+  color: #171717;
+  text-decoration: none;
+}
+
+ul li:hover {
+  background-color: #f4f4f4;
+}
+
+.menu {
+  position: fixed;
+  height: 100vh;
+  width: 50%;
+  background-color: #fff;
+  margin-left: -80%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  z-index: 5;
+}
+
+.blockArena, .blockArena2 {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.blockArena2 {
+  z-index: 3;
+}
+
+.profilePic {
+  margin-left: 20px;
+  margin-bottom: -17px;
+  height: 70px;
+  width: 70px;
+  background-image: url("http://i65.tinypic.com/wccv43.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
   </head>
   <body>
     <div class="olydesktok">this app working only with mobile viewer</div>
@@ -33,6 +314,77 @@
       <div class="postrawa"></div>
     </div>
     </div>
-    <script src="src/root.js"></script>
+    <script>
+        const key = "4645bcf241c542279d15316495dd6566"
+        const url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=100&apiKey=${key}`
+      
+        const recievedNews = (newsdata) => {
+          const articlesDiv = document.querySelector(".postrawa")
+          newsdata.articles.forEach((article) => {
+      
+      
+            const div = document.createElement("div")
+            div.className = "news"
+            div.innerHTML = `<div class="feed">
+                <img class="image" id="img2" src="${article.urlToImage ? article.urlToImage : ''}" />
+                <div class="text">
+                  <h4>${article.title}</h4>
+                </div>
+                <div class="btnCircle"><a href="${article.url}">
+                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1.3em" height="1.3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#fefefe" d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6l-6-6z"/></svg>
+                </a></div>
+              </div>`
+            articlesDiv.appendChild(div)
+      
+          })
+        }
+      
+        fetch(url)
+          .then(response => response.json())
+          .then(recievedNews)
+      
+        $(document).ready(function() {
+      
+          $(".blockArena").click(function() {
+            $(".menu").animate({
+              left: "0"
+            }, 300, function() {
+              $(".blockArena").css("display", "none");
+            });
+          });
+      
+          $(".action").click(function() {
+            $(".actionMenu").css("display", "block");
+            $(".actionMenu").animate({
+              height: "230"
+            }, 100, function() {
+              $(".blockArena2").css("display", "block");
+            });
+          });
+      
+          $(".blockArena2").click(function() {
+            $(".actionMenu").css("display", "none");
+            $(".actionMenu").animate({
+              height: "0"
+            }, 100, function() {
+              $(".blockArena2").css("display", "none");
+            });
+          });
+      
+          $("#mainCircle").click(function() {
+            if (isShown == false) {
+              isShown = true;
+              $(".crc").css("display", "block");
+              $(".circleMenu").animate({
+                marginTop: "50%"
+              }, 300);
+            } else {
+              isShown = false;
+              $(".crc").css("display", "none");
+              $(".circleMenu").css("margin-top", "93%");
+            }
+          });
+        });
+    </script>
   </body>
 </html>
